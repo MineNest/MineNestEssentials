@@ -1,0 +1,16 @@
+protected-worlds:
+  - lobby
+# Can op interact ?
+op-interaction: false
+# Limit these things ?
+breaking-blocks: true
+placing-blocks: true
+item-pickup: true
+item-drop: true
+join-msg: true
+quit-msg: true
+tp-spawn-on-join: true
+
+messages:
+  join: "<gradient:#00FF00:#FF0000>[+] {PLAYER}</gradient>"
+  quit: "<gradient:#00FF00:#FF0000>[-] {PLAYER}</gradient>"

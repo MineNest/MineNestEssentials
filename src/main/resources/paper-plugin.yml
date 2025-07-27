@@ -1,0 +1,4 @@
+name: MineNestEssentials
+version: '1.0'
+main: org.example.tdkms.mineNestEssentials.MineNestEssentials
+api-version: '1.21'
