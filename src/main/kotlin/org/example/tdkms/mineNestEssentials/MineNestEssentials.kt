@@ -2,6 +2,7 @@ package org.example.tdkms.mineNestEssentials
 
 import org.bukkit.GameRule
 import org.bukkit.plugin.java.JavaPlugin
+import org.example.tdkms.mineNestEssentials.commands.ReloadCommand
 
 /**
  * Main plugin class. Initializes config and registers event listeners.
@@ -13,6 +14,7 @@ class MineNestEssentials : JavaPlugin() {
         saveDefaultConfig()
         settings = Settings(config)
 
+        ReloadCommand.register(this)
         server.pluginManager.registerEvents(ProtectedWorldsListener(settings), this)
 
         settings.protectedWorlds.forEach { worldName ->
@@ -24,5 +26,10 @@ class MineNestEssentials : JavaPlugin() {
         }
 
         logger.info("MineNestEssentials enabled. Protected worlds: ${settings.protectedWorlds}")
+    }
+
+    fun loadSettings() {
+        settings = Settings(config)
+        logger.info("Loaded settings: $settings")
     }
 }

@@ -18,6 +18,8 @@ repositories {
 }
 
 dependencies {
+    compileOnly("org.incendo:cloud-paper:2.0.0-beta.1")
+    compileOnly("org.incendo:cloud-annotations:2.0.0-beta.1")
     compileOnly("io.papermc.paper:paper-api:1.21.7-R0.1-SNAPSHOT")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 }
