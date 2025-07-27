@@ -19,6 +19,7 @@ import net.kyori.adventure.text.minimessage.MiniMessage
 class ProtectedWorldsListener(private val settings: Settings) : Listener {
 
     private fun isProtected(player: Player) = settings.protectedWorlds.contains(player.world.name)
+    private val mm: MiniMessage = MiniMessage.miniMessage()
 
     @EventHandler
     fun onBlockBreak(event: BlockBreakEvent) {
