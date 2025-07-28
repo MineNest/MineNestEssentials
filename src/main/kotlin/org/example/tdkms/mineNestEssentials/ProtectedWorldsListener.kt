@@ -11,6 +11,7 @@ import org.bukkit.event.entity.EntityDamageEvent
 import org.bukkit.event.inventory.InventoryOpenEvent
 import org.bukkit.event.player.*
 import net.kyori.adventure.text.minimessage.MiniMessage
+import org.bukkit.event.inventory.InventoryType
 
 
 /**
@@ -53,10 +54,16 @@ class ProtectedWorldsListener(private val settings: Settings) : Listener {
 
         if (!isProtected(player)) return
 
-        // if it’s any block‑based inventory other than chest
-        val holder = e.inventory.holder
-        if (holder !is Chest) {
-            e.isCancelled = true
+        // Blocking these specific types:
+        when (e.inventory.type) {
+            InventoryType.ANVIL,
+            InventoryType.WORKBENCH,
+            InventoryType.FURNACE,
+            InventoryType.BLAST_FURNACE,
+            InventoryType.ENDER_CHEST,
+            InventoryType.HOPPER,
+            InventoryType.BREWING -> e.isCancelled = true
+            else -> {}
         }
     }
 
