@@ -97,11 +97,16 @@ class ProtectedWorldsListener(private val settings: Settings) : Listener {
     fun onJoin(event: PlayerJoinEvent) {
         val player = event.player
 
-        if (settings.tpSpawnOnJoin && isProtected(player)) player.teleport(player.world.spawnLocation)
+        if (settings.tpSpawnOnJoin && isProtected(player)) {
+            player.teleport(player.world.spawnLocation.clone().apply {
+                pitch = settings.spawnPitch
+                yaw = settings.spawnYaw
+            })
+        }
+
 
         if (settings.showJoinMessage) {
             val raw = settings.joinMessage.replace("{PLAYER}", player.name)
-            // deserialize to a Component with gradient
             val comp = mm.deserialize(raw)
             event.joinMessage(comp)
         }
@@ -113,7 +118,6 @@ class ProtectedWorldsListener(private val settings: Settings) : Listener {
 
         if (settings.showQuitMessage) {
             val raw = settings.quitMessage.replace("{PLAYER}", player.name)
-            // deserialize to a Component with gradient
             val comp = mm.deserialize(raw)
             event.quitMessage(comp)
         }

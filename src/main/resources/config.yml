@@ -10,6 +10,8 @@ item-drop: true
 join-msg: true
 quit-msg: true
 tp-spawn-on-join: true
+spawn-pitch: 0.0
+spawn-yaw: 0.0
 
 messages:
   join: "<gradient:#00FF00:#FF0000>[+] {PLAYER}</gradient>"

@@ -17,6 +17,8 @@ class Settings(config: FileConfiguration) {
     val showJoinMessage: Boolean = config.getBoolean("join-msg", true)
     val showQuitMessage: Boolean = config.getBoolean("quit-msg", true)
     val tpSpawnOnJoin: Boolean     = config.getBoolean("tp-spawn-on-join", true)
+    val spawnPitch: Float = config.getDouble("spawn-pitch", 0.0).toFloat()
+    val spawnYaw: Float = config.getDouble("spawn-yaw", 0.0).toFloat()
 
     /** Custom join message format */
     val joinMessage: String = config.getString("messages.join", "§a[+] {PLAYER}")!!
