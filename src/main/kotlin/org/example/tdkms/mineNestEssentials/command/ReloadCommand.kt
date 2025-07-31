@@ -1,5 +1,5 @@
-// File: src/main/kotlin/org/example/tdkms/mineNestEssentials/commands/ReloadCommand.kt
-package org.example.tdkms.mineNestEssentials.commands
+// File: src/main/kotlin/org/example/tdkms/mineNestEssentials/command/ReloadCommand.kt
+package org.example.tdkms.mineNestEssentials.command
 
 import org.bukkit.ChatColor
 import org.bukkit.command.Command
@@ -9,6 +9,7 @@ import org.bukkit.command.CommandMap
 import org.bukkit.command.PluginCommand
 import org.bukkit.plugin.Plugin
 import org.example.tdkms.mineNestEssentials.MineNestEssentials
+import org.example.tdkms.mineNestEssentials.util.ConfigService
 import java.lang.reflect.Constructor
 import java.lang.reflect.Field
 
@@ -26,7 +27,7 @@ class ReloadCommand(private val plugin: MineNestEssentials) : CommandExecutor {
                 return true
             }
             plugin.reloadConfig()
-            plugin.loadSettings()
+            ConfigService.reload()
             sender.sendMessage("${ChatColor.GREEN}MineNestEssentials config reloaded!")
             return true
         }

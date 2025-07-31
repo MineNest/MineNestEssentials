@@ -13,7 +13,7 @@ class Settings(config: FileConfiguration) {
     val cancelBlockPlace: Boolean  = config.getBoolean("placing-blocks", true)
     val cancelPickup: Boolean      = config.getBoolean("item-pickup", true)
     val cancelDrop: Boolean        = config.getBoolean("item-drop", true)
-    val canOpInteract: Boolean        = config.getBoolean("op-interaction", true)
+    val enableOpBypass: Boolean        = config.getBoolean("op-bypass", false)
     val showJoinMessage: Boolean = config.getBoolean("join-msg", true)
     val showQuitMessage: Boolean = config.getBoolean("quit-msg", true)
     val tpSpawnOnJoin: Boolean     = config.getBoolean("tp-spawn-on-join", true)

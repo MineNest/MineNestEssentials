@@ -1,7 +1,7 @@
 protected-worlds:
   - lobby
-# Can op interact ?
-op-interaction: false
+# Can op do whatever the fuck they want? ( in protected worlds! )
+op-bypass: false
 # Limit these things ?
 breaking-blocks: true
 placing-blocks: true
